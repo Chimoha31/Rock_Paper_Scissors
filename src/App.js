@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import HandsButton from "./components/HandsButton";
+import ResetButton from "./components/ResetButton";
 import Results from "./components/Results";
 import UserCmpHand from "./components/UserCmpHand";
 import UserCmpPoints from "./components/UserCmpPoints";
@@ -57,8 +58,8 @@ const App = () => {
   }, [userHandImage, cmpHandImage]);
 
   return (
-    <div>
-      <h1>ROCK PAPER SCISSOR</h1>
+    <div className="app">
+      <h1 className="title">ROCK PAPER SCISSOR</h1>
       <UserCmpPoints userPoints={userPoints} cmpPoints={cmpPoints} />
       <UserCmpHand userHandImage={userHandImage} cmpHandImage={cmpHandImage} />
       <HandsButton
@@ -67,8 +68,7 @@ const App = () => {
         gameReset={gameReset}
       />
       <Results turnResult={turnResult} finalResult={finalResult} />
-
-      <div>{gameReset && <button>Restart Game?</button>}</div>
+      <ResetButton gameReset={gameReset} />
     </div>
   );
 };
