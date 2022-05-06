@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
+import HandsButton from "./components/HandsButton";
+import UserCmpHand from "./components/UserCmpHand";
 
 const App = () => {
   const [userHandImage, setUserHandImage] = useState("rock");
@@ -12,15 +14,46 @@ const App = () => {
 
   const handsChoice = ["rock", "paper", "scissors"];
 
-  const handleClick = (hand) => {
-    setUserHandImage(hand);
-    cmpRandomHand();
-  }
+  useEffect(() => {
+    const handsPattern = userHandImage + cmpHandImage;
+    if (userPoints <= 4 && cmpPoints <= 4) {
+      if (
+        handsPattern === "rockscissors" ||
+        handsPattern === "paperrock" ||
+        handsPattern === "scissorspaper"
+      ) {
+        const addUserPoints = userPoints + 1;
+        setUserPoints(addUserPoints);
+        setTurnResult("User got the point this turn!");
+        if (addUserPoints === 5) {
+          setFinalResult("User Wins !");
+          setGameReset(true);
+        }
+      }
 
-  const cmpRandomHand = () => {
-    const cpmHand = handsChoice[Math.floor(Math.random() * handsChoice.length)];
-    setCmpHandImage(cpmHand);
-  }
+      if (
+        handsPattern === "scissorsrock" ||
+        handsPattern === "rockpaper" ||
+        handsPattern === "paperscissors"
+      ) {
+        const addCmpPoints = cmpPoints + 1;
+        setCmpPoints(addCmpPoints);
+        setTurnResult("CMP got the point this turn!");
+        if (addCmpPoints === 5) {
+          setFinalResult("CMP wins !");
+          setGameReset(true);
+        }
+      }
+      if (
+        handsPattern === "rockrock" ||
+        handsPattern === "paperpaper" ||
+        handsPattern === "scissorsscissors"
+      ) {
+        setTurnResult("Noe one get a point");
+      }
+    }
+    // eslint-disable-next-line
+  }, [userHandImage, setCmpHandImage]);
 
   return (
     <div>
@@ -31,26 +64,12 @@ const App = () => {
         <h1>CMP Points: {cmpPoints}</h1>
       </div>
 
-      {/* User CMP Junken Image */}
-      <div>
-        <img
-          src={`../images/${userHandImage}.png`}
-          alt="rock_paper_scissor"
-          style={{ width: "100px", height: "100px" }}
-        />
-        <img
-          src={`../images/${cmpHandImage}.png`}
-          alt="rock_paper_scissor"
-          style={{ width: "100px", height: "100px" }}
-        />
-      </div>
-
-      {/* Select Junken Button */}
-      <div>
-        {handsChoice.map((hand, index) => (
-          <button key={index} onClick={() => handleClick(hand)}>{hand}</button>
-        ))}
-      </div>
+      <UserCmpHand userHandImage={userHandImage} cmpHandImage={cmpHandImage} />
+      <HandsButton
+        handsChoice={handsChoice}
+        setUserHandImage={setUserHandImage}
+        setCmpHandImage={setCmpHandImage}
+      />
 
       {/* Turn Result */}
       <div>
@@ -62,10 +81,7 @@ const App = () => {
         <h2>Final Result: {finalResult} </h2>
       </div>
 
-      <div>
-        {gameReset && <button>Restart Game?</button>}
-        
-      </div>
+      <div>{gameReset && <button>Restart Game?</button>}</div>
     </div>
   );
 };
