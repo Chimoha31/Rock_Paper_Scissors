@@ -1,6 +1,6 @@
 import React from "react";
 
-const HandsButton = ({ setUserHandImage, setCmpHandImage }) => {
+const HandsButton = ({ setUserHandImage, setCmpHandImage, gameReset }) => {
   const handsChoice = ["rock", "paper", "scissors"];
 
   const handleClick = (hand) => {
@@ -16,7 +16,7 @@ const HandsButton = ({ setUserHandImage, setCmpHandImage }) => {
   return (
     <div>
       {handsChoice.map((hand, index) => (
-        <button key={index} onClick={() => handleClick(hand)}>
+        <button key={index} onClick={() => handleClick(hand)} disabled={gameReset}>
           {hand}
         </button>
       ))}

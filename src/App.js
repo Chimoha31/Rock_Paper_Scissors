@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 import HandsButton from "./components/HandsButton";
+import Results from "./components/Results";
 import UserCmpHand from "./components/UserCmpHand";
+import UserCmpPoints from "./components/UserCmpPoints";
 
 const App = () => {
   const [userHandImage, setUserHandImage] = useState("rock");
@@ -57,27 +59,14 @@ const App = () => {
   return (
     <div>
       <h1>ROCK PAPER SCISSOR</h1>
-      {/* User CMP Junken Points */}
-      <div>
-        <h1>User Points: {userPoints}</h1>
-        <h1>CMP Points: {cmpPoints}</h1>
-      </div>
-
+      <UserCmpPoints userPoints={userPoints} cmpPoints={cmpPoints} />
       <UserCmpHand userHandImage={userHandImage} cmpHandImage={cmpHandImage} />
       <HandsButton
         setUserHandImage={setUserHandImage}
         setCmpHandImage={setCmpHandImage}
+        gameReset={gameReset}
       />
-
-      {/* Turn Result */}
-      <div>
-        <h2>Turn Result: {turnResult}</h2>
-      </div>
-
-      {/* final winner */}
-      <div>
-        <h2>Final Result: {finalResult} </h2>
-      </div>
+      <Results turnResult={turnResult} finalResult={finalResult} />
 
       <div>{gameReset && <button>Restart Game?</button>}</div>
     </div>
