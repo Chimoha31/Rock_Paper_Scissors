@@ -1,14 +1,16 @@
 import React from "react";
 
-const HandsButton = ({ handsChoice, setUserHandImage, setCmpHandImage}) => {
+const HandsButton = ({ setUserHandImage, setCmpHandImage }) => {
+  const handsChoice = ["rock", "paper", "scissors"];
+
   const handleClick = (hand) => {
     setUserHandImage(hand);
     cmpRandomHand();
   };
 
   const cmpRandomHand = () => {
-    const cpmHand = handsChoice[Math.floor(Math.random() * handsChoice.length)];
-    setCmpHandImage(cpmHand);
+    const cmpHand = handsChoice[Math.floor(Math.random() * handsChoice.length)];
+    setCmpHandImage(cmpHand);
   };
 
   return (

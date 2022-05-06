@@ -12,7 +12,6 @@ const App = () => {
   const [finalResult, setFinalResult] = useState("Display Winner here");
   const [gameReset, setGameReset] = useState(false);
 
-  const handsChoice = ["rock", "paper", "scissors"];
 
   useEffect(() => {
     const handsPattern = userHandImage + cmpHandImage;
@@ -53,7 +52,7 @@ const App = () => {
       }
     }
     // eslint-disable-next-line
-  }, [userHandImage, setCmpHandImage]);
+  }, [userHandImage, cmpHandImage]);
 
   return (
     <div>
@@ -66,7 +65,6 @@ const App = () => {
 
       <UserCmpHand userHandImage={userHandImage} cmpHandImage={cmpHandImage} />
       <HandsButton
-        handsChoice={handsChoice}
         setUserHandImage={setUserHandImage}
         setCmpHandImage={setCmpHandImage}
       />
