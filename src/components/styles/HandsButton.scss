@@ -6,13 +6,14 @@
   display: flex;
   justify-content: center;
   & button {
+    background-color: #fff;
     font-family: "Nerko One", cursive;
     margin: 0 10px;
-    width: 100px;
+    width: 150px;
     height: 50px;
     border-radius: 5px;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     cursor: pointer;
   }
 }

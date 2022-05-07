@@ -25,7 +25,7 @@ const App = () => {
       ) {
         const addUserPoints = userPoints + 1;
         setUserPoints(addUserPoints);
-        setTurnResult("User got the point!");
+        setTurnResult("User gets a point!");
         if (addUserPoints === 5) {
           setFinalResult("User Wins !");
           setGameReset(true);
@@ -39,7 +39,7 @@ const App = () => {
       ) {
         const addCmpPoints = cmpPoints + 1;
         setCmpPoints(addCmpPoints);
-        setTurnResult("CMP got the point!");
+        setTurnResult("CMP gets a point!");
         if (addCmpPoints === 5) {
           setFinalResult("CMP wins !");
           setGameReset(true);
@@ -50,7 +50,7 @@ const App = () => {
         handsPattern === "paperpaper" ||
         handsPattern === "scissorsscissors"
       ) {
-        setTurnResult("Noe one get a point");
+        setTurnResult("No one gets a point");
       }
     }
     // eslint-disable-next-line
