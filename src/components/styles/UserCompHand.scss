@@ -8,6 +8,14 @@
     width: 130px;
     height: 130px;
   }
+  & .user_hand img{
+    display: inline-block;
+    transform: rotate(30deg);
+  }
+  & .cmp_hand img{
+    display: inline-block;
+    transform: rotate(-20deg);
+  }
 }
 
 @media (min-width: 767px) {
