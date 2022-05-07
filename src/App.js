@@ -15,7 +15,6 @@ const App = () => {
   const [finalResult, setFinalResult] = useState("");
   const [gameReset, setGameReset] = useState(false);
 
-
   useEffect(() => {
     const handsPattern = userHandImage + cmpHandImage;
     if (userPoints <= 4 && cmpPoints <= 4) {
