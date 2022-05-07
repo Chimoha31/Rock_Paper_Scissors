@@ -1,18 +1,24 @@
 import React from "react";
+import './styles/UserCompHand.scss';
 
-const UserCmpHand = ({userHandImage, cmpHandImage}) => {
+const UserCmpHand = ({ userHandImage, cmpHandImage }) => {
   return (
-    <div>
-      <img
-        src={`../images/${userHandImage}.png`}
-        alt="rock_paper_scissor"
-        style={{ width: "100px", height: "100px" }}
-      />
-      <img
-        src={`../images/${cmpHandImage}.png`}
-        alt="rock_paper_scissor"
-        style={{ width: "100px", height: "100px" }}
-      />
+    <div className="handImg">
+      <div className="user_hand">
+        <img
+          src={`../images/${userHandImage}.png`}
+          alt="rock_paper_scissor"
+        />
+      </div>
+      <div className="vs_mark">
+        <p></p>
+      </div>
+      <div className="cmp_hand">
+        <img
+          src={`../images/${cmpHandImage}.png`}
+          alt="rock_paper_scissor"
+        />
+      </div>
     </div>
   );
 };

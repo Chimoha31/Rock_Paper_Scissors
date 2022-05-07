@@ -60,6 +60,7 @@ const App = () => {
   return (
     <div className="app">
       <h1 className="title">ROCK PAPER SCISSOR</h1>
+      <p>- 5pt Match -</p>
       <UserCmpPoints userPoints={userPoints} cmpPoints={cmpPoints} />
       <UserCmpHand userHandImage={userHandImage} cmpHandImage={cmpHandImage} />
       <HandsButton
