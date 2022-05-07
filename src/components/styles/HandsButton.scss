@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+.hands_btn {
+  width: 100%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  & button {
+    font-family: 'Nerko One', cursive;
+    margin: 0 10px;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 767px) {
+  .hands_btn {
+    & button {
+      margin-top: 20px;
+      width: 160px;
+      height: 55px;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .hands_btn {
+    & button {
+      margin-top: 32px;
+      width: 200px;
+      height: 60px;
+      font-size: 2.4rem;
+    }
+  }
+}

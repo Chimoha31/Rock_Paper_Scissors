@@ -12,7 +12,7 @@ const App = () => {
   const [userPoints, setUserPoints] = useState(0);
   const [cmpPoints, setCmpPoints] = useState(0);
   const [turnResult, setTurnResult] = useState(null);
-  const [finalResult, setFinalResult] = useState("Display Winner here");
+  const [finalResult, setFinalResult] = useState("");
   const [gameReset, setGameReset] = useState(false);
 
 
@@ -26,7 +26,7 @@ const App = () => {
       ) {
         const addUserPoints = userPoints + 1;
         setUserPoints(addUserPoints);
-        setTurnResult("User got the point this turn!");
+        setTurnResult("User got the point!");
         if (addUserPoints === 5) {
           setFinalResult("User Wins !");
           setGameReset(true);
@@ -40,7 +40,7 @@ const App = () => {
       ) {
         const addCmpPoints = cmpPoints + 1;
         setCmpPoints(addCmpPoints);
-        setTurnResult("CMP got the point this turn!");
+        setTurnResult("CMP got the point!");
         if (addCmpPoints === 5) {
           setFinalResult("CMP wins !");
           setGameReset(true);

@@ -1,14 +1,16 @@
-import React from 'react'
+import React from "react";
+import "./styles/ResetButton.scss";
 
-const ResetButton = ({gameReset}) => {
-
+const ResetButton = ({ gameReset }) => {
   const handleReset = () => {
     window.location.reload();
-  }
+  };
 
   return (
-    <div>{gameReset && <button onClick={handleReset}>Restart Game?</button>}</div>
-  )
-}
+    <div className="reset_btn">
+      {gameReset && <button onClick={handleReset}>Restart Game?</button>}
+    </div>
+  );
+};
 
-export default ResetButton
+export default ResetButton;
